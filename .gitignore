@@ -91,6 +91,3 @@ media/
 
 # ide
 .idea
-
-# migrations
-pokemon_entities/migrations/
