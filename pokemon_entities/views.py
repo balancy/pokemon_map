@@ -1,6 +1,5 @@
 import folium
 
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
 
@@ -72,7 +71,7 @@ def show_pokemon(request, pokemon_id):
 
     try:
         pokemon_object = Pokemon.objects.get(id=int(pokemon_id))
-    except ObjectDoesNotExist:
+    except Pokemon.DoesNotExist:
         return HttpResponseNotFound("<h1>Такой покемон не найден</h1>")
 
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
